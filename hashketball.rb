@@ -181,11 +181,7 @@ def winning_team
   end
 end
 
-def player_names
-  
-end
-
 def player_with_longest_name
-  all_players.max_by { |name, stats| name[0].length }
+  all_players.keys.max_by { |name| name.length }
 end
 
