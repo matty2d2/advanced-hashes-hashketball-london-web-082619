@@ -152,20 +152,15 @@ def player_numbers(team_name)
   find_team(team_name)[:players].map {|name, stats| stats[:number]}
 end
 ###########################################################
-def player_biggest_feet
-  all_players.max_by { |name, stats| stats[:shoe] }
-end
-
 def big_shoe_rebounds
   player_stats(player_w_max_stat(:shoe))[:rebounds]
-  #player_biggest_feet[1][:rebounds]
 end
 ###########################################################
-def player_w_max_stat(stat)
+def player_w_max_stat(stat) #player with the max of a given stat
   all_players.max_by { |name, stats| stats[stat] }[0]
 end
 
-def team_stats(location)
+def team_stats(location) #total stats of given (home/away )team
   array=[]
   game_hash[location][:players].each do |player, player_hash|
     array << player_hash
