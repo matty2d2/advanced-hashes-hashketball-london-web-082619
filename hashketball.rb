@@ -157,7 +157,8 @@ def player_biggest_feet
 end
 
 def big_shoe_rebounds
-  player_biggest_feet[1][:rebounds]
+  player_stats(player_w_max_stat(:shoe))[:rebounds]
+  #player_biggest_feet[1][:rebounds]
 end
 ###########################################################
 def player_w_max_stat(stat)
