@@ -115,7 +115,7 @@ def game_hash
     }
   }
 end
-###########################################################
+##########################HELPER METHODS#################################
 def all_players
   game_hash[:home][:players].merge(game_hash[:away][:players])
 end
@@ -124,7 +124,7 @@ def player_stats(name)
   all_players[name]
 end
 ###########################################################
-############################
+############CHALLENGES################ 
 def num_points_scored(name)
   player_stats(name)[:points]
 end
@@ -146,7 +146,7 @@ def team_names
   all_teams.map { |team| team[:team_name] }
 end
 #########################################################################
-############################
+############CHALLENGES################ 
 def team_colors(team_name)
   find_team(team_name)[:colors]
 end
@@ -155,8 +155,7 @@ def player_numbers(team_name)
   find_team(team_name)[:players].map {|name, stats| stats[:number]}
 end
 ############################
-##########################
-
+##########################HELPER METHODS#################################
 def player_w_max_stat(stat) #player with the max of a given stat
   all_players.max_by { |name, stats| stats[stat] }[0]
 end
@@ -168,8 +167,8 @@ def team_stats(location) #total stats of given (home/away )team
   end
   array.reduce {|info, h| info.merge(h) {|_,v1,v2| v1 + v2 }}
 end
-###########################################################
-############################
+#########################################################################
+############BONUS CHALLENGES################ 
 def big_shoe_rebounds
   player_stats(player_w_max_stat(:shoe))[:rebounds]
 end
