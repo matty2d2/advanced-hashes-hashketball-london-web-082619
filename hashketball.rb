@@ -160,13 +160,8 @@ def big_shoe_rebounds
   player_biggest_feet[1][:rebounds]
 end
 ###########################################################
-###########################################################
 def player_w_max_stat(stat)
   all_players.max_by { |name, stats| stats[stat] }[0]
-end
-
-def most_points_scored
-  player_w_max_stat(:points)
 end
 
 def team_stats(location)
@@ -175,6 +170,11 @@ def team_stats(location)
     array << player_hash
   end
   array.reduce {|info, h| info.merge(h) {|_,v1,v2| v1 + v2 }}
+end
+###########################################################
+
+def most_points_scored
+  player_w_max_stat(:points)
 end
 
 def winning_team
