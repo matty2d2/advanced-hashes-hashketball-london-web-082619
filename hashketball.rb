@@ -190,6 +190,6 @@ def player_with_longest_name
 end
 
 def long_name_steals_a_ton?
-  all_players.max_by { |name, stats| stats[:steals] }[0] == player_with_longest_name
+  player_w_max_stat(:steals) == player_with_longest_name
 end
 
