@@ -161,8 +161,12 @@ def big_shoe_rebounds
 end
 ###########################################################
 ###########################################################
+def player_w_max_stat(stat)
+  all_players.max_by { |name, stats| stats[stat] }[0]
+end
+
 def most_points_scored
-  all_players.max_by { |name, stats| stats[:points] }[0]
+  player_w_max_stat(:points)
 end
 
 def team_stats(location)
@@ -186,6 +190,6 @@ def player_with_longest_name
 end
 
 def long_name_steals_a_ton?
-  all_players.max_by { |name, stats| stats[:steals] }[0]
+  all_players.max_by { |name, stats| stats[:steals] }[0] == player_with_longest_name
 end
 
