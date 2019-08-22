@@ -154,8 +154,12 @@ end
 def player_numbers(team_name)
   find_team(team_name)[:players].map {|name, stats| stats[:number]}
 end
+
+def big_shoe_rebounds #helper method "player_w_max_stat" below
+  player_stats(player_w_max_stat(:shoe))[:rebounds]
+end
 ############################
-##########################BONUS HELPER METHODS#################################
+##########################HELPER METHODS#################################
 def player_w_max_stat(stat) #player with the max of a given stat
   all_players.max_by { |name, stats| stats[stat] }[0]
 end
@@ -169,10 +173,6 @@ def team_stats(location) #total stats of given (home/away )team
 end
 #########################################################################
 ############BONUS CHALLENGES################ 
-def big_shoe_rebounds
-  player_stats(player_w_max_stat(:shoe))[:rebounds]
-end
-
 def most_points_scored
   player_w_max_stat(:points)
 end
