@@ -155,7 +155,7 @@ def player_numbers(team_name)
   find_team(team_name)[:players].map {|name, stats| stats[:number]}
 end
 ############################
-##########################HELPER METHODS#################################
+##########################BONUS HELPER METHODS#################################
 def player_w_max_stat(stat) #player with the max of a given stat
   all_players.max_by { |name, stats| stats[stat] }[0]
 end
