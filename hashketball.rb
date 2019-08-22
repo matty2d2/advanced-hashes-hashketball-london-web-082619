@@ -185,3 +185,7 @@ def player_with_longest_name
   all_players.keys.max_by { |name| name.length }
 end
 
+def long_name_steals_a_ton?
+  all_players.max_by { |name, stats| stats[:steals] }[0]
+end
+
